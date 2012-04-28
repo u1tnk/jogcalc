@@ -19,6 +19,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3'
