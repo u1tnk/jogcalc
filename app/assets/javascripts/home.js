@@ -32,11 +32,11 @@ function execCalc(){
     var resultSecond = parseInt(resultAllSecond % 60);
     speedView.text(resultMinutes + "分" +  resultSecond + "秒");
     if(resultAllSecond >= 6 * 60){
-        rankView.text("初級");
+        rankView.text("(初級)");
     }else if(4 * 60 + 30 < resultAllSecond && resultAllSecond < 6 * 60 ){
-        rankView.text("中級");
+        rankView.text("(中級)");
     }else{
-        rankView.text("プロ級");
+        rankView.text("(プロ級)");
     }
 }
 
