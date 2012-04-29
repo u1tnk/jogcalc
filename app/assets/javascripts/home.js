@@ -54,17 +54,34 @@ $(function(){
     execPanel = $('#execPanel');
     speedView = $("#speedView");
 
-    hoursInput.slider({animate: true, max: 10, min: 0, step: 1
+    hoursInput.slider({animate: true, max: 11, min: -1, step: 1
+        , range:"min"
         , slide:function(){
-            hours = parseInt(hoursInput.slider("value"));
+            var value = hoursInput.slider("value");
+            if( value < 0){
+                hours = 0;
+            } else if(10 < value){
+                hours = 10;
+            } else {
+                hours = parseInt(value);
+            }
             localStorage.setItem("jogCalHours", hours);
             hoursView.text(hours);
             checkShowExecPanel();
         }
     });
-    minutesInput.slider({animate: true, max: 59, min: 0, step: 1
+    minutesInput.slider({animate: true, max: 60, min: -1, step: 1
+        , range:"min"
         , slide: function(){
-            minutes = parseInt(minutesInput.slider("value"));
+            var value = minutesInput.slider("value");
+            if( value < 0){
+                minutes = 0;
+            } else if(59 < value){
+                minutes = 59;
+            } else {
+                minutes = parseInt(value);
+            }
+            minutes = parseInt(value);
             localStorage.setItem("jogCalMinutes", minutes);
             minutesView.text(minutes);
             checkShowExecPanel();
