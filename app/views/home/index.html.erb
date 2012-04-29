@@ -6,7 +6,7 @@
 	
 <p class="speedView_txt"> 1kmあたり...<span id="speedView" class="speedView"></span></p>
 
-  <div id="distancePanel" class="well form-search" style="display:none;">
+  <div id="distancePanel" class="well_s form-search" style="display:none;">
 <p class="btn-group">
       <button type="button" class="btn" onclick="updateDistance(5)">5km</button> <button type="button" class="btn" onclick="updateDistance(10)">10km</button> <button type="button" class="btn" onclick="updateDistance(21.0975)">ハーフマラソン</button> <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
     </p>
@@ -14,16 +14,8 @@
       その他 <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
     </p>
   </div>
-
-  <div id="timePanel" class="well form-search" style="display:none;">
-    <div>
-      <span class="hoursView">0</span>時間<span class="minutesView">0</span>分
-    </div>
-    <div>
-      0<div id="hoursInput"></div>10
-    </div>
-    <div>
-      0<div id="minutesInput"></div>60
-    </div>
+  <div id="timePanel" class="well_s form-search" style="display:none;">
+    <div class="slider">0<div id="hoursInput"></div>10</div>
+    <div class="slider">0<div id="minutesInput"></div>59</div>
   </div>
     </div>
