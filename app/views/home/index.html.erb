@@ -2,9 +2,10 @@
 
       <div id="distancePanelShow" class="btn btn-inverse">
         <span id="distanceView" >0</span>km</div>を<div id="timePanelShow" class="btn btn-inverse">
-     <span class="hoursView">0</span>時間<span class="minutesView">0</span>分</div>で走るには
-<p>1kmあたり<span id="speedView"></span>で走れ</p>
-
+     <span class="hoursView">0</span>時間<span class="minutesView">0</span>分</div>で走るには...
+	
+<p class="speedView_txt"> 1kmあたり...<span id="speedView" class="speedView"></span></p>
+  </div>
   <div id="distancePanel" class="well form-search" style="display:none;">
 <p class="btn-group">
       <button type="button" class="btn" onclick="updateDistance(5)">5km</button> <button type="button" class="btn" onclick="updateDistance(10)">10km</button> <button type="button" class="btn" onclick="updateDistance(21.0975)">ハーフマラソン</button> <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
@@ -25,4 +26,3 @@
       0<div id="minutesInput"></div>60
     </div>
   </div>
-    </div>
