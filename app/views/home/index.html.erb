@@ -1,21 +1,27 @@
-  <div id="infoPanel" class="well form-search">
+<div id="infoPanel" class="well form-search">
 
-     <div id="distancePanelShow" class="btn btn-inverse">
-     <span id="distanceView" >0</span>km</div>を<div id="timePanelShow" class="btn btn-inverse">
-     <span class="hoursView">0</span>時間<span class="minutesView">0</span>分</div>で走るには
-	
-  <p class="speedView_txt"> 1kmあたり...<span id="speedView" class="speedView"></span></p>
+    <div id="distancePanelShow" class="btn btn-inverse">
+        <span id="distanceView" >0</span>km
+    </div>を<div id="timePanelShow" class="btn btn-inverse">
+        <span class="hoursView">0</span>時間<span class="minutesView">0</span>分
+    </div>で走るには
 
-  <div id="distancePanel" class="well_s form-search" style="display:none;">
-<p class="btn-group">
-      <button type="button" class="btn" onclick="updateDistance(5)">5km</button> <button type="button" class="btn" onclick="updateDistance(10)">10km</button> <button type="button" class="btn" onclick="updateDistance(21.0975)">ハーフマラソン</button> <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
-    </p>
-    <p>
-      その他 <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
-    </p>
-  </div>
-  <div id="timePanel" class="well_s form-search" style="display:none;">
-    <div class="slider">0<input id="hoursInput" type="range" min="0" max="10"/>10</div>
-    <div class="slider">0<input id="minutesInput" type="range" min="0" max="59"/>59</div>
-  </div>
+    <p class="speedView_txt"> 1kmあたり...<span id="speedView" class="speedView"></span></p>
+
+    <div id="distancePanel" class="well_s form-search" style="display:none;">
+        <p class="btn-group">
+            <button type="button" class="btn" onclick="updateDistance(5)">5km</button> 
+            <button type="button" class="btn" onclick="updateDistance(10)">10km</button> 
+            <button type="button" class="btn" onclick="updateDistance(21.0975)">ハーフマラソン</button> 
+            <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
+        </p>
+        <p>
+            その他 <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
+        </p>
     </div>
+    <div id="timePanel" class="well_s form-search" style="display:none;">
+        <div class="slider">0<input id="hoursInput" type="range" min="0" max="10"/>10</div>
+        <div class="slider">0<input id="minutesInput" type="range" min="0" max="59"/>59</div>
+    </div>
+
+</div>
