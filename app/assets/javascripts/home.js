@@ -55,6 +55,21 @@ $(function(){
     execPanel = $('#execPanel');
     speedView = $("#speedView");
 
+    hoursInput.slider({max: 10, min: 0, step: 1
+        , change:function(){
+            hours = parseInt(hoursInput.slider("value"));
+            localStorage.setItem("jogCalHours", hours);
+            hoursView.text(hours);
+        }
+    });
+    minutesInput.slider({max: 60, min: 0, step: 1
+        , change: function(){
+            minutes = parseInt(minutesInput.slider("value"));
+            localStorage.setItem("jogCalMinutes", minutes);
+            minutesView.text(minutes);
+        }
+    });
+
     distanceView.text(distance);
     hoursView.text(hours);
     hoursInput.val(hours);
@@ -77,16 +92,6 @@ $(function(){
             return
         }
         updateDistance(distanceInput.val());
-    });
-    hoursInput.change(function(){
-        hours = parseInt(hoursInput.val());
-        localStorage.setItem("jogCalHours", hours);
-        hoursView.text(hours);
-    });
-    minutesInput.change(function(){
-        minutes = parseInt(minutesInput.val());
-        localStorage.setItem("jogCalMinutes", minutes);
-        minutesView.text(minutes);
     });
     timeDecide.click(function(){
         timePanel.fadeOut(1000);
