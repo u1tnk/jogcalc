@@ -1,6 +1,9 @@
-var distance = 0;
-var hours = 0;
-var minutes = 0;
+var distance = localStorage.getItem("jogCalDistance");
+if(!distance){distance = 0};
+var hours = localStorage.getItem("jogCalHours");
+if(!hours){hours = 0};
+var minutes = localStorage.getItem("jogCalMinutes");
+if(!minutes){minutes = 0};
 
 var distancePanelShow;
 var distanceView;
@@ -28,6 +31,7 @@ function updateDistance(value){
     distanceView.text(distance);
     distancePanel.fadeOut(1000);
     checkShowExecPanel();
+    localStorage.setItem("jogCalDistance", distance);
 }
 function checkShowExecPanel(){
     if(distance === 0 || (hours === 0 && minutes === 0)){
@@ -49,8 +53,14 @@ $(function(){
     minutesView = $(".minutesView");
     minutesInput = $("#minutesInput");
     execPanel = $('#execPanel');
-    
     speedView = $("#speedView");
+
+    distanceView.text(distance);
+    hoursView.text(hours);
+    hoursInput.val(hours);
+    minutesView.text(minutes);
+    minutesInput.val(minutes);
+    checkShowExecPanel();
 
     distancePanelShow.click(function(){
         timePanel.fadeOut(1000);
@@ -70,10 +80,12 @@ $(function(){
     });
     hoursInput.change(function(){
         hours = parseInt(hoursInput.val());
+        localStorage.setItem("jogCalHours", hours);
         hoursView.text(hours);
     });
     minutesInput.change(function(){
         minutes = parseInt(minutesInput.val());
+        localStorage.setItem("jogCalMinutes", minutes);
         minutesView.text(minutes);
     });
     timeDecide.click(function(){
