@@ -54,7 +54,7 @@ $(function(){
     execPanel = $('#execPanel');
     speedView = $("#speedView");
 
-    hoursInput.slider({max: 10, min: 0, step: 1
+    hoursInput.slider({animate: true, max: 10, min: 0, step: 1
         , slide:function(){
             hours = parseInt(hoursInput.slider("value"));
             localStorage.setItem("jogCalHours", hours);
@@ -62,7 +62,7 @@ $(function(){
             checkShowExecPanel();
         }
     });
-    minutesInput.slider({max: 59, min: 0, step: 1
+    minutesInput.slider({animate: true, max: 59, min: 0, step: 1
         , slide: function(){
             minutes = parseInt(minutesInput.slider("value"));
             localStorage.setItem("jogCalMinutes", minutes);
