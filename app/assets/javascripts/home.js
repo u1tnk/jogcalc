@@ -13,10 +13,17 @@ var timeDecide;
 var minutesView;
 var minutesInput;
 
-var execCalc;
 var speedView;
 
-function clearExeccPanel(){
+function execCalc(){
+    var allSecond = hours * 60 * 60 + minutes * 60;
+    var resultAllSecond = allSecond / distance;
+    var resultMinutes = parseInt(resultAllSecond / 60);
+    var resultSecond = parseInt(resultAllSecond % 60);
+    speedView.text("1kmあたり" + resultMinutes + "分" +  resultSecond + "秒");
+}
+
+function clearExecPanel(){
     execPanel.hide();
     speedView.text("");
 }
@@ -24,13 +31,14 @@ function updateDistance(value){
     distance = value;
     distanceView.text(distance);
     distancePanel.hide();
-    checkShowExecutePanel();
+    checkShowExecPanel();
 }
-function checkShowExecutePanel(){
+function checkShowExecPanel(){
     if(distance === 0 || (hours === 0 && minutes === 0)){
-        clearExeccPanel();
+        clearExecPanel();
         return;
     }
+    execCalc();
     execPanel.show();
 }
 $(function(){
@@ -47,17 +55,16 @@ $(function(){
     minutesInput = $("#minutesInput");
     execPanel = $('#execPanel');
     
-    execCalc = $("#execCalc");
     speedView = $("#speedView");
 
     distancePanelShow.click(function(){
         timePanel.hide();
-        clearExeccPanel();
+        clearExecPanel();
         distancePanel.show();
     });
     timePanelShow.click(function(){
         distancePanel.hide();
-        clearExeccPanel();
+        clearExecPanel();
         timePanel.show();
     });
     distanceInput.change(function(){
@@ -76,16 +83,9 @@ $(function(){
     });
     timeDecide.click(function(){
         timePanel.hide();
-        checkShowExecutePanel();
+        checkShowExecPanel();
     });
 
-    execCalc.click(function(){
-        var allSecond = hours * 60 * 60 + minutes * 60;
-        var resultAllSecond = allSecond / distance;
-        var resultMinutes = parseInt(resultAllSecond / 60);
-        var resultSecond = parseInt(resultAllSecond % 60);
-        speedView.text("1kmあたり" + resultMinutes + "分" +  resultSecond + "秒");
-    });
 
 
 
