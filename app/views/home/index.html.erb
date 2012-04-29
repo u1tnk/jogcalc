@@ -16,14 +16,15 @@
             <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
         </p>
         <p>
-        その他 
-            <input id="distanceInputRange" type="range" min="0" max="100" class="input-small search-query"/><br />
-            <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
+            1<input id="distanceInputRange" class="range" type="range" min="1" max="100" class="input-small search-query"/>100km
+        </p>
+        <p>
+            <input id="distanceInput" type="number" name="distance" min="1" class="input-small search-query"/>km
         </p>
     </div>
     <div id="timePanel" class="well_s form-search" style="display:none;">
-        <div class="slider">0<input id="hoursInput" type="range" min="0" max="10"/>10</div>
-        <div class="slider">0<input id="minutesInput" type="range" min="0" max="59"/>59</div>
+        <div class="slider">0<input id="hoursInput" class="range" type="range" min="0" max="10"/>10</div>
+        <div class="slider">0<input id="minutesInput" class="range" type="range" min="0" max="59"/>59</div>
     </div>
 
 </div>

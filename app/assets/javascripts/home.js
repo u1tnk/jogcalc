@@ -1,5 +1,5 @@
 var distance = localStorage.getItem("jogCalDistance");
-if(!distance){distance = 0};
+if(!distance){distance = 1};
 var hours = localStorage.getItem("jogCalHours");
 if(!hours){hours = 0};
 var minutes = localStorage.getItem("jogCalMinutes");
