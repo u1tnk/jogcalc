@@ -53,6 +53,9 @@ $(function(){
     minutesInput = $("#minutesInput");
     speedView = $("#speedView");
     distancePanel.show();
+    distancePanelShow.addClass("btn-primary");
+    distancePanelShow.removeClass("btn-inverse");
+ 
 
     hoursInput.change(function(){
         var value = hoursInput.val();
@@ -78,11 +81,19 @@ $(function(){
 
     distancePanelShow.click(function(){
         timePanel.hide();
+        timePanelShow.removeClass("btn-primary");
+        timePanelShow.addClass("btn-inverse");
         distancePanel.show();
+        distancePanelShow.addClass("btn-primary");
+        distancePanelShow.removeClass("btn-inverse");
     });
     timePanelShow.click(function(){
         distancePanel.hide();
+        distancePanelShow.removeClass("btn-primary");
+        distancePanelShow.addClass("btn-inverse");
         timePanel.show();
+        timePanelShow.addClass("btn-primary");
+        timePanelShow.removeClass("btn-inverse");
     });
 
     distanceInputRange.change(function(){
