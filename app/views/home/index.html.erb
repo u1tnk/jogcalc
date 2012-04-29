@@ -1,39 +1,53 @@
-距離<span id="distanceView">0</span><input id="distanceInput" type="number" name="distance" value="0" min="0"/><br />
-時間<span id="hoursView">0</span><input id="hoursInput" type="range" name="hours" max="10" min="0" value="0"/><br />
-分<span id="minutesView">0</span><input id="minutesInput" type="range" name="minutes" max="60" min="0" value="0"/><br />
-<div id="execCalc" type="button">結果表示</div>
-結果<span id="speedView" ></span>
-
-
-  <form class="well form-search">
+  <div id="infoPanel" class="well form-search">
     <p>
-      <select id="select01" class="span2">
-        <option>---</option>
-        <option>3</option>
-        <option>5</option>
-        <option>10</option>
-        <option>21</option>
-        <option>42</option>
-        <option>100</option>
-      </select>
-      kmを
+      <div id="distancePanelShow">
+        <span id="distanceView">0</span>
+        km
+      </div>を
 
-      <select id="select01" class="span1">
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-      </select>
-     時間
-      <select id="select01" class="span1">
-        <option>00</option>
-        <option>10</option>
-        <option>15</option>
-        <option>20</option>
-        <option>30</option>
-        <option>40</option>
-        <option>50</option>
-      </select>
-      　分で走るには
-      <button type="submit" class="btn">計算する</button>
+      <div id="timePanelShow">
+        <span class="hoursView">0</span>
+          時間
+        <span class="minutesView">0</span>
+        　分で走る
+      </div>
     </p>
-  </form>
+  </div>
+  <div id="distancePanel" class="well form-search" style="display:none;">
+    <p>
+      <button type="button" onclick="updateDistance(42.195)">フルマラソン</button>
+    </p>
+    <p>
+      <button type="button" onclick="updateDistance(21.0975)">ハーフマラソン</button>
+    </p>
+    <p>
+      <button type="button" onclick="updateDistance(10)">10km</button>
+    </p>
+    <p>
+      <button type="button" onclick="updateDistance(5)">5km</button>
+    </p>
+    <p>
+      <input id="distanceInput" type="number" name="distance" min="0"/>
+    </p>
+  </div>
+
+  <div id="timePanel" class="well form-search" style="display:none;">
+    <div>
+      <span class="hoursView">0</span>時間<span class="minutesView">0</span>分
+    </div>
+    <div>
+      0<input id="hoursInput" type="range" name="hours" max="10" min="0" value="0"/>10
+    </div>
+    <div>
+      0<input id="minutesInput" type="range" name="minutes" max="60" min="0" value="0"/>60
+    </div>
+    <button  id="timeDecide">決定</button>
+  </div>
+  <div id="execPanel" class="well form-search" style="display:none;">
+    <p>
+      <button id="execCalc" type="button" class="btn">計算する</button>
+    </p>
+    <p>
+      <span id="speedView" ></span>
+    </p>
+  </div>
