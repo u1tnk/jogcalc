@@ -56,6 +56,7 @@ $(function(){
 
     hoursInput.change(function(){
         var value = hoursInput.val();
+        hours = parseInt(value);
         localStorage.setItem("jogCalHours", hours);
         hoursView.text(hours);
         execCalc();
