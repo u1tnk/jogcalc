@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+</style>
 <head>
   <title>Jogcalc</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,16 +13,71 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html">JogCalc</a>
+      <div class="nav-collapse">
+        <ul class="nav pull-right">
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maho Nakashima<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#one">設定</a></li>
+              <li class="divider"></li>
+              <li><a href="#three">ログアウト</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<div class="container">
 
-　<div id="user_nav">
-  <% if current_user %>
+  
+  <form class="well form-search">
+    <p>
+      <select id="select01" class="span2">
+        <option>---</option>
+        <option>3</option>
+        <option>5</option>
+        <option>10</option>
+        <option>21</option>
+        <option>42</option>
+        <option>100</option>
+      </select>
+      kmを
+
+      <select id="select01" class="span1">
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+     時間
+      <select id="select01" class="span1">
+        <option>00</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+      　分で走るには
+      <button type="submit" class="btn">計算する</button>
+    </p>
+  </form>
+<button type="submit" class="btn"><% if current_user %>
      <%= current_user.name %>さん <%= link_to "ログアウト" ,logout_path %>
   <% else %>
      <%= link_to "facebookでlogin", "/auth/facebook" %>
-  <% end %>
-　</div>
-
+  <% end %></button>
+  </div>
+  <hr>
+  <footer>
+    <p>&copy; JogCalc All Rights Reserved.</p>
+  </footer>
+</div>
+<!-- /container -->
 <%= yield %>
-
 </body>
 </html>
