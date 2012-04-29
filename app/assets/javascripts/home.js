@@ -9,6 +9,7 @@ var distancePanelShow;
 var distanceView;
 var distancePanel;
 var distanceInput;
+var distanceInputRange;
 var timePanelShow;
 var hoursView;
 var hoursInput;
@@ -33,6 +34,8 @@ function execCalc(){
 function updateDistance(value){
     distance = value;
     distanceView.text(distance);
+    distanceInput.val(value);
+    distanceInputRange.val(value);
     execCalc();
     localStorage.setItem("jogCalDistance", distance);
 }
@@ -41,6 +44,7 @@ $(function(){
     distancePanel = $('#distancePanel');
     distancePanelShow = $('#distancePanelShow');
     distanceInput = $('#distanceInput');
+    distanceInputRange = $('#distanceInputRange');
     timePanel = $('#timePanel');
     timePanelShow = $('#timePanelShow');
     hoursView = $(".hoursView");
@@ -78,6 +82,13 @@ $(function(){
     timePanelShow.click(function(){
         distancePanel.hide();
         timePanel.show();
+    });
+
+    distanceInputRange.change(function(){
+        if(!distanceInputRange.val()){
+            return
+        }
+        updateDistance(distanceInputRange.val());
     });
     distanceInput.change(function(){
         if(!distanceInput.val()){
