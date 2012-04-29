@@ -23,23 +23,18 @@ function execCalc(){
     speedView.text("1kmあたり" + resultMinutes + "分" +  resultSecond + "秒");
 }
 
-function clearExecPanel(){
-    execPanel.hide();
-    speedView.text("");
-}
 function updateDistance(value){
     distance = value;
     distanceView.text(distance);
-    distancePanel.hide();
+    distancePanel.fadeOut(1000);
     checkShowExecPanel();
 }
 function checkShowExecPanel(){
     if(distance === 0 || (hours === 0 && minutes === 0)){
-        clearExecPanel();
         return;
     }
     execCalc();
-    execPanel.show();
+    execPanel.fadeIn(1000);
 }
 $(function(){
     distanceView = $('#distanceView');
@@ -58,14 +53,14 @@ $(function(){
     speedView = $("#speedView");
 
     distancePanelShow.click(function(){
-        timePanel.hide();
-        clearExecPanel();
-        distancePanel.show();
+        timePanel.fadeOut(1000);
+        execPanel.fadeOut(1000);
+        distancePanel.fadeIn(1000);
     });
     timePanelShow.click(function(){
-        distancePanel.hide();
-        clearExecPanel();
-        timePanel.show();
+        distancePanel.fadeOut(1000);
+        execPanel.fadeOut(1000);
+        timePanel.fadeIn(1000);
     });
     distanceInput.change(function(){
         if(!distanceInput.val()){
@@ -82,12 +77,9 @@ $(function(){
         minutesView.text(minutes);
     });
     timeDecide.click(function(){
-        timePanel.hide();
+        timePanel.fadeOut(1000);
         checkShowExecPanel();
     });
-
-
-
 
 });
 
