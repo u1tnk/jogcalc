@@ -33,13 +33,8 @@ function execCalc(){
 function updateDistance(value){
     distance = value;
     distanceView.text(distance);
-    distancePanel.hide();
-    checkShowExecPanel();
-    localStorage.setItem("jogCalDistance", distance);
-}
-function checkShowExecPanel(){
     execCalc();
-    execPanel.show();
+    localStorage.setItem("jogCalDistance", distance);
 }
 $(function(){
     distanceView = $('#distanceView');
@@ -52,35 +47,21 @@ $(function(){
     hoursInput = $("#hoursInput");
     minutesView = $(".minutesView");
     minutesInput = $("#minutesInput");
-    execPanel = $('#execPanel');
     speedView = $("#speedView");
+    distancePanel.show();
 
     hoursInput.change(function(){
         var value = hoursInput.val();
-        if( value < 0){
-            hours = 0;
-        } else if(10 < value){
-            hours = 10;
-        } else {
-            hours = parseInt(value);
-        }
         localStorage.setItem("jogCalHours", hours);
         hoursView.text(hours);
-        checkShowExecPanel();
+        execCalc();
     });
     minutesInput.change(function(){
         var value = minutesInput.val();
-        if( value < 0){
-            minutes = 0;
-        } else if(59 < value){
-            minutes = 59;
-        } else {
-            minutes = parseInt(value);
-        }
         minutes = parseInt(value);
         localStorage.setItem("jogCalMinutes", minutes);
         minutesView.text(minutes);
-        checkShowExecPanel();
+        execCalc();
     });
 
     distanceView.text(distance);
@@ -88,16 +69,14 @@ $(function(){
     hoursInput.val(hours);
     minutesView.text(minutes);
     minutesInput.val(minutes);
-    checkShowExecPanel();
+    execCalc();
 
     distancePanelShow.click(function(){
         timePanel.hide();
-        execPanel.hide();
         distancePanel.show();
     });
     timePanelShow.click(function(){
         distancePanel.hide();
-        execPanel.hide();
         timePanel.show();
     });
     distanceInput.change(function(){
