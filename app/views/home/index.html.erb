@@ -16,7 +16,9 @@
             <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
         </p>
         <p>
-            その他 <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
+        その他 
+            <input id="distanceInputRange" type="range" min="0" max="100" class="input-small search-query"/><br />
+            <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
         </p>
     </div>
     <div id="timePanel" class="well_s form-search" style="display:none;">
