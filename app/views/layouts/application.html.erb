@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+</style>
+<head>
+  <title>Jogcalc</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"><a class="brand" href="#"><img src="assets/logo.png"></a>
+      
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<div class="container">
+
+<%= yield %>
+  
+<button type="submit" class="btn"><% if current_user %>
+     <%= current_user.name %>さん <%= link_to "ログアウト" ,logout_path %>
+  <% else %>
+     <%= link_to "facebookでlogin", "/auth/facebook" %>
+  <% end %></button>
+  </div>
+  <hr>
+  <footer>
+    <p>Developed by <a href="https://twitter.com/#!/u1tnk" target="_blank">@u1tnk</a>, Designed by <a href="https://twitter.com/#!/mahohori" target="_blank">@mahohori</a>
+in #p4dhack
+	</p>
+  </footer>
+</div>
+<!-- /container -->
+</body>
+</html>
