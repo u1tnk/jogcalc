@@ -20,7 +20,7 @@ function execCalc(){
     var resultAllSecond = allSecond / distance;
     var resultMinutes = parseInt(resultAllSecond / 60);
     var resultSecond = parseInt(resultAllSecond % 60);
-    speedView.text("1kmあたり" + resultMinutes + "分" +  resultSecond + "秒");
+    speedView.text(resultMinutes + "分" +  resultSecond + "秒");
 }
 
 function clearExecPanel(){
