@@ -18,10 +18,12 @@ var minutesView;
 var minutesInput;
 
 var speedView;
+var rankView;
 
 function execCalc(){
     if(distance == 0 || (hours == 0 && minutes == 0)){
         speedView.text("計算できません");
+        rankView.text("");
         return;
     }
     var allSecond = hours * 60 * 60 + minutes * 60;
@@ -29,6 +31,13 @@ function execCalc(){
     var resultMinutes = parseInt(resultAllSecond / 60);
     var resultSecond = parseInt(resultAllSecond % 60);
     speedView.text(resultMinutes + "分" +  resultSecond + "秒");
+    if(resultAllSecond >= 6 * 60){
+        rankView.text("初級");
+    }else if(4 * 60 + 30 < resultAllSecond && resultAllSecond < 6 * 60 ){
+        rankView.text("中級");
+    }else{
+        rankView.text("プロ級");
+    }
 }
 
 function updateDistance(value){
@@ -51,7 +60,9 @@ $(function(){
     hoursInput = $("#hoursInput");
     minutesView = $(".minutesView");
     minutesInput = $("#minutesInput");
+    minutesInput = $("#minutesInput");
     speedView = $("#speedView");
+    rankView = $("#rankView");
     distancePanel.show();
     distancePanelShow.addClass("btn-primary");
     distancePanelShow.removeClass("btn-inverse");
