@@ -29,7 +29,7 @@ function execCalc(){
 function updateDistance(value){
     distance = value;
     distanceView.text(distance);
-    distancePanel.fadeOut(1000);
+    distancePanel.hide();
     checkShowExecPanel();
     localStorage.setItem("jogCalDistance", distance);
 }
@@ -38,7 +38,7 @@ function checkShowExecPanel(){
         return;
     }
     execCalc();
-    execPanel.fadeIn(1000);
+    execPanel.show();
 }
 $(function(){
     distanceView = $('#distanceView');
@@ -47,7 +47,6 @@ $(function(){
     distanceInput = $('#distanceInput');
     timePanel = $('#timePanel');
     timePanelShow = $('#timePanelShow');
-    timeDecide = $("#timeDecide");
     hoursView = $(".hoursView");
     hoursInput = $("#hoursInput");
     minutesView = $(".minutesView");
@@ -56,17 +55,19 @@ $(function(){
     speedView = $("#speedView");
 
     hoursInput.slider({max: 10, min: 0, step: 1
-        , change:function(){
+        , slide:function(){
             hours = parseInt(hoursInput.slider("value"));
             localStorage.setItem("jogCalHours", hours);
             hoursView.text(hours);
+            checkShowExecPanel();
         }
     });
-    minutesInput.slider({max: 60, min: 0, step: 1
-        , change: function(){
+    minutesInput.slider({max: 59, min: 0, step: 1
+        , slide: function(){
             minutes = parseInt(minutesInput.slider("value"));
             localStorage.setItem("jogCalMinutes", minutes);
             minutesView.text(minutes);
+            checkShowExecPanel();
         }
     });
 
@@ -78,24 +79,20 @@ $(function(){
     checkShowExecPanel();
 
     distancePanelShow.click(function(){
-        timePanel.fadeOut(1000);
-        execPanel.fadeOut(1000);
-        distancePanel.fadeIn(1000);
+        timePanel.hide();
+        execPanel.hide();
+        distancePanel.show();
     });
     timePanelShow.click(function(){
-        distancePanel.fadeOut(1000);
-        execPanel.fadeOut(1000);
-        timePanel.fadeIn(1000);
+        distancePanel.hide();
+        execPanel.hide();
+        timePanel.show();
     });
     distanceInput.change(function(){
         if(!distanceInput.val()){
             return
         }
         updateDistance(distanceInput.val());
-    });
-    timeDecide.click(function(){
-        timePanel.fadeOut(1000);
-        checkShowExecPanel();
     });
 
 });
