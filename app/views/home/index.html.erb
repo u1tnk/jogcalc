@@ -1,33 +1,21 @@
   <div id="infoPanel" class="well form-search">
     <p>
       <div id="distancePanelShow">
-        <span id="distanceView">0</span>
-        km
-      </div>を
+        <p><span id="distanceView" class="btn btn-inverse">0</span> kmを</p>
+      </div>
 
       <div id="timePanelShow">
-        <span class="hoursView">0</span>
-          時間
-        <span class="minutesView">0</span>
-        　分で走る
+        <p><span class="hoursView btn btn-inverse">0</span> 時間
+        <span class="minutesView btn btn-inverse">0</span> 分で走る</p>
       </div>
     </p>
   </div>
   <div id="distancePanel" class="well form-search" style="display:none;">
-    <p>
-      <button type="button" onclick="updateDistance(42.195)">フルマラソン</button>
+<p>
+      <button type="button" class="btn" onclick="updateDistance(5)">5km</button> <button type="button" class="btn" onclick="updateDistance(10)">10km</button> <button type="button" class="btn" onclick="updateDistance(21.0975)">ハーフマラソン</button> <button type="button" class="btn" onclick="updateDistance(42.195)">フルマラソン</button>
     </p>
     <p>
-      <button type="button" onclick="updateDistance(21.0975)">ハーフマラソン</button>
-    </p>
-    <p>
-      <button type="button" onclick="updateDistance(10)">10km</button>
-    </p>
-    <p>
-      <button type="button" onclick="updateDistance(5)">5km</button>
-    </p>
-    <p>
-      <input id="distanceInput" type="number" name="distance" min="0"/>
+      その他 <input id="distanceInput" type="number" name="distance" min="0" class="input-small search-query"/>km
     </p>
   </div>
 
@@ -41,7 +29,7 @@
     <div>
       0<input id="minutesInput" type="range" name="minutes" max="60" min="0" value="0"/>60
     </div>
-    <button  id="timeDecide">決定</button>
+    <button id="timeDecide" class="btn  btn-primary">決定</button>
   </div>
   <div id="execPanel" class="well form-search" style="display:none;">
     <p>
