@@ -1,3 +1,6 @@
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 /**
 * Bootstrap.js by @fat & @mdo
 * Copyright 2012 Twitter, Inc.
