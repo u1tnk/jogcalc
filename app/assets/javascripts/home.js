@@ -19,6 +19,10 @@ var minutesInput;
 var speedView;
 
 function execCalc(){
+    if(distance == 0 || (hours == 0 && minutes == 0)){
+        speedView.text("計算できません");
+        return;
+    }
     var allSecond = hours * 60 * 60 + minutes * 60;
     var resultAllSecond = allSecond / distance;
     var resultMinutes = parseInt(resultAllSecond / 60);
@@ -34,9 +38,6 @@ function updateDistance(value){
     localStorage.setItem("jogCalDistance", distance);
 }
 function checkShowExecPanel(){
-    if(distance === 0 || (hours === 0 && minutes === 0)){
-        return;
-    }
     execCalc();
     execPanel.show();
 }
